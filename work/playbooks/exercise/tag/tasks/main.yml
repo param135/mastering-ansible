@@ -1,0 +1,7 @@
+---
+- name: to just shell out
+  shell: echo tag
+  changed_when: false
+  register: output
+- debug: var=output
+  tags: [ 'tag' ]

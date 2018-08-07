@@ -1,0 +1,9 @@
+---
+- hosts: db02
+  gather_facts: True
+  #vars:
+          #var1: 'hello world'
+          #var2: 'hello how are you doing'
+  roles:
+    #- { role: template, var1: 'hi', var2: 'wow' }
+    - template

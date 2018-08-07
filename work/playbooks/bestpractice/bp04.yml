@@ -1,0 +1,14 @@
+---
+# best practice number 4: alwyas use state whenever possible
+ - name: play name for pb04
+   hosts: db02
+   tasks:
+     - name: task name 
+       file:
+         src: /home/ansible/testcontent
+         dest: /home/ansible/secrete/symlink
+         owner: ansible
+         group: ansible
+         state: link
+       become: yes
+     - debug: msg="to use state at all time"

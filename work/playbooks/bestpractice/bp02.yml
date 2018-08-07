@@ -1,0 +1,8 @@
+---
+# to use enough comments and lines to describe the purpose for documentation
+- hosts: db02
+  tasks:
+    - name: task name
+      #Use enough spaces and comments to describe along with the task names
+      #this is the second line */
+      debug: msg="to use comments, use the the hash, no multiline"

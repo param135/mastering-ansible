@@ -1,0 +1,20 @@
+# to define the best practice of using the setup variables to group
+- hosts: all
+  tasks:
+    - name: to display the whole variable so that we can choose the os or distribution variable
+      #debug: var=vars
+      #debug: msg="{{ansible_distribution_version}}"
+      group_by:
+         key: os_{{ ansible_distribution_version}}
+
+- hosts: os_14.04
+  tasks:
+    - name: specific to few 
+      #debug: var=vars
+      debug: msg="os_14.04"
+
+- hosts: os_18.04
+  tasks:
+    - name: specific to others
+      #debug: var=vars
+      debug: msg="os_18.04"

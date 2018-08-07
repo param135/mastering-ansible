@@ -1,0 +1,9 @@
+- hosts: loadbalancer
+  become: yes
+  roles:
+    - tree
+
+- hosts: database
+  become: yes
+  roles:
+    - tree

@@ -1,0 +1,46 @@
+---
+# tasks file for nginx
+- name: install tools
+  apt: name={{item}} state=present
+  with_items:
+    - python-httplib2
+  tags: [ 'packages' ]
+
+- name: install loadbalancer from scratch
+  apt: name=nginx state=present
+  tags: [ 'packages' ]
+
+- name: configure nginx sites
+  #template: src=nginx.conf.j2 dest=/etc/nginx/sites-available/{{ item.key }} mode=0644
+  template: src=nginx.conf.j2 dest=/etc/nginx/sites-available/demo mode=0644
+  #with_dict: sites
+  notify: restart nginx
+  tags: [ 'configure' ]
+
+- name: get active sites
+  shell: ls -1 /etc/nginx/sites-enabled
+  register: active
+  #changed_when: "active.stdout_line != sites.keys()"
+  changed_when: false
+  tags: [ 'configure' ]
+
+- debug: var=vars
+
+- name: deactivate default site
+  #file: path=/etc/nginx/sites-enabled/{{ item }} state=absent
+  file: path=/etc/nginx/sites-enabled/default state=absent
+  #with_items: active.stdout_lines
+  #when: item not in sites
+  notify: restart nginx
+  tags: [ 'configure' ]
+
+- name: activate sites
+  #file: src=/etc/nginx/sites-available/{{ item.key }} dest=/etc/nginx/sites-enabled/{{ item.key }} state=link
+  file: src=/etc/nginx/sites-available/demo dest=/etc/nginx/sites-enabled/demo state=link
+  #with_dict: sites
+  notify: restart nginx
+  tags: [ 'configure' ]
+
+- name: ensure nginx is started
+  service: name=nginx state=started enabled=yes
+  tags: [ 'service' ]

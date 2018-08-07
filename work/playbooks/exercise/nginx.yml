@@ -1,0 +1,4 @@
+- hosts: database
+  sudo: True
+  roles:
+    - nginx

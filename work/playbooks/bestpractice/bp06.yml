@@ -1,0 +1,7 @@
+#!/usr/bin/env ansible-playbook
+---
+ - name: play name for varaiable setting
+   hosts: db02
+   tasks:
+     - name: test task
+       debug: msg="setting environment without keeping it simple"

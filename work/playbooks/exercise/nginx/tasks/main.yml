@@ -1,0 +1,10 @@
+---
+- apt: name={{item}} state=present
+  with_items:
+    - nginx
+
+- apt: name=tree state=present
+  notify: to restart the handler
+
+- service: name=nginx state=stopped
+  notify: to restart the handler

@@ -1,0 +1,7 @@
+---
+# to demonstrate KISS (Keep it simple)
+ - name: play name for keepint it simple
+   hosts: db02
+   tasks:
+     - name: task for keepint it simple
+       debug: msg="task for keepint it simple"

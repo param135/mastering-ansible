@@ -1,0 +1,7 @@
+# to use roles so that it could be group together
+---
+- name: best pratice to use roles to group them together
+  hosts: db02
+  roles:
+    #looks like we can't name in the role
+    - bp08

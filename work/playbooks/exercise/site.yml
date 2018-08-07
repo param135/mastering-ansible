@@ -1,0 +1,9 @@
+---
+- include: copy.yml
+- include: file.yml
+- include: hostname.yml
+- include: nginx.yml
+- include: template.yml
+- include: tree.yml
+- include: cache.yml
+- include: tag.yml

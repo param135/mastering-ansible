@@ -1,0 +1,2 @@
+---
+- apt: name=tree state=absent update_cache=yes

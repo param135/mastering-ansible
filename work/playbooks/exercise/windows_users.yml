@@ -1,0 +1,4 @@
+# its been a while since this file was versioned
+- hosts: windows
+  roles:
+    - windows_users

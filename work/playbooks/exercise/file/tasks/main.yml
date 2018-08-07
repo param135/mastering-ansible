@@ -1,0 +1,3 @@
+---
+- file: src=/home/ansible/testcontent dest=/home/ansible/secrete/default state=link
+  become: yes

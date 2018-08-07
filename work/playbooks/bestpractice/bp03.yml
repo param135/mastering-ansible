@@ -1,0 +1,7 @@
+---
+# to demonstrate the playname
+- name: play name can also be considered as a good way to represent the play name
+  hosts: db02
+  tasks:
+    - name: task name can be tracked by the --list-tasks and also helps to use the other --start-at-task
+      debug: msg="play name"

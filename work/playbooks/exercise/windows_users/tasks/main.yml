@@ -1,0 +1,17 @@
+---
+# tasks file for playbooks/exercise/windows_users
+# mention the task name every time nad the state
+- name: Create new groups
+  win_group:
+    name: "{{ item }}"
+  with_items:
+    - application
+    - deployments
+
+- name: Ensure user bob is present
+  win_user:
+    name: bob
+    password: B0bP4ssw0rd
+    state: present
+    groups:
+      - application

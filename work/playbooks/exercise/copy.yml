@@ -1,0 +1,3 @@
+- hosts: db02
+  roles:
+    - copy

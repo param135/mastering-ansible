@@ -1,0 +1,6 @@
+---
+# to mention the task name at all time
+- hosts: db02
+  tasks:
+    - name: always mention the task name
+      debug: msg="alwyas mention the task name"

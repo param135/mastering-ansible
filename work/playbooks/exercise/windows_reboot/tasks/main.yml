@@ -1,0 +1,6 @@
+---
+# tasks file for playbooks/exercise/windows_reboot
+# Reboot a slow machine that might have lots of updates to apply
+- debug: msg="Calling the reboot role"
+- win_reboot:
+    shutdown_timeout_sec: 60

@@ -1,0 +1,3 @@
+---
+# tasks file for copy
+- copy: src=testcontent dest=~/

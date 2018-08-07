@@ -1,0 +1,4 @@
+# Calling the roles per the best practice
+- hosts: windows
+  roles:
+    - windows_updates

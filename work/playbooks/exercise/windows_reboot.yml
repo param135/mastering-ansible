@@ -1,0 +1,5 @@
+#!/usr/bin/env ansible-playbook
+# calling the role windows_reboot for the tasks
+- hosts: windows
+  roles:
+    - windows_reboot

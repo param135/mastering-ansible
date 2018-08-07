@@ -1,0 +1,16 @@
+- hosts: all
+  tasks:
+  - name: Create a group of all hosts by operating system
+    group_by: key={{ansible_distribution}}-{{ansible_distribution_version}}
+
+- hosts: Ubuntu-14.04
+
+  tasks:
+  - name: ping all Ubuntu 14.04 hosts
+    ping:
+- hosts: Ubuntu-18.04
+
+  tasks:
+  - name: ping all Ubuntu 18.04 hosts
+    ping:
+
